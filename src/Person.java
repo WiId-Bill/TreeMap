@@ -3,28 +3,48 @@ public class Person implements Comparable<Person>{
     private String surName;
     private int age;
 
+
+
     public Person(String name, String surName, int age) {
         this.name = name;
         this.surName = surName;
         this.age = age;
     }
+    public int maxWords() {
+        Main x = new Main();
+       int max = x.m()-1;
+        return max;
+    }
+
 
     @Override
     public int compareTo(Person o) {
-      if (namberwords()>o.namberwords()){
-           return -1;
-       }else if (namberwords()<o.namberwords()){
-        return 1;
-       }else {
-             if (age < o.age) {
-                return 1;
-            } else if (age > o.age) {
+        System.out.println(maxWords());
+        System.out.println(namberwords());
+        System.out.println(o.namberwords());
+        System.out.println();
+        if (namberwords() >= maxWords() && o.namberwords()>= maxWords()) {
+            return comparisonAge(o);
+        } else {
+            if (namberwords() > o.namberwords()) {
                 return -1;
-            } else {
-                return 0;
+            } else if (namberwords() < o.namberwords()) {
+                return 1;
             }
+        else {
+                return comparisonAge(o);
+            }
+                    }
+    }
 
-        }
+    private int comparisonAge(Person o) {
+        if (age < o.age) {
+            return 1;
+       } else if (age > o.age) {
+            return -1;
+       } else {
+            return 0;
+       }
     }
 
 
