@@ -15,14 +15,7 @@ public class Person implements Comparable<Person>{
            return -1;
        }else if (namberwords()<o.namberwords()){
         return 1;
-       }else {
-             if (age < o.age) {
-                return 1;
-            } else if (age > o.age) {
-                return -1;
-            } else {
-                return 0;
-            }
+       }else { return Integer.compare(o.age,age);
 
         }
     }

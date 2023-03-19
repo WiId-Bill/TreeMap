@@ -9,10 +9,10 @@ public class Main {
         people.add(new Person("Petya", "Ivanov", 5));
         people.add(new Person("Tanay", "Maximova-Vasilevskay", 1));
         people.add(new Person("Olya", "Petrova", 4));
-        people.add(new Person("Alex", "Tern", 3));
+        people.add(new Person("Alex", "Tern rgrgb gtgt4gb ttt", 3));
         System.out.println(people);
-        Collections.sort(people);
-        System.out.println(people);
+      Collections.sort(people, new PersonSurnameComparator(2));
+      System.out.println(people);
     }
 
 }
