@@ -4,18 +4,30 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Main {
-  int maxWords = 2;
+  private static final int  maxWords = 3;
     public static void main(String[] args) {
       List<Person>people = new ArrayList<>();
       people.add(new Person("Ivan", "Vasilev Novicov", 3));
         people.add(new Person("Petya", "Ivanov", 5));
         people.add(new Person("Tanay", "Maximova-Vasilevskay", 1));
         people.add(new Person("Olya", "Petrova", 4));
-        people.add(new Person("Alex", "Tern", 3));
+        people.add(new Person("Alex", "Tern gffg gbfdgfg gfgfd", 3));
 
 
-     // Comparator<Person> comparator = new (Person o1, Person o2) -> {
-     // }
+      Comparator<Person> comparator = (Person o1, Person o2) -> {
+        if (o1.namberwords() >= maxWords && o2.namberwords() >= maxWords){
+          return Integer.compare(o2.getAge(), o1.getAge());
+        }else {
+          int surnameLength1 = o1.namberwords();
+          int surnameLength2 = o2.namberwords();
+          int surnameCompare = Integer.compare(surnameLength2, surnameLength1);
+          if (surnameCompare == 0) {
+            return Integer.compare(o2.getAge(), o1.getAge());
+          } else {
+            return surnameCompare;
+          }
+        }
+      };
 
         System.out.println(people);
         Collections.sort(people, comparator);
